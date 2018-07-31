@@ -1,9 +1,12 @@
+using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
 using System.Net.Http;
+using System.Diagnostics;
 
 namespace Microsoft.Bot.Sample.QnABot
 {
@@ -21,9 +24,9 @@ namespace Microsoft.Bot.Sample.QnABot
             // check if activity is of type message
             if (activity.GetActivityType() == ActivityTypes.Message)
             {
-                //await Conversation.SendAsync(activity, () => new RootDialog());
-                await Conversation.SendAsync(activity, () => new qnaMakerDialogImedical());
-            }
+        //await Conversation.SendAsync(activity, () => new RootDialog());
+        await Conversation.SendAsync(activity, () => new qnaMakerDialogImedical());
+      }
             else
             {
                 HandleSystemMessage(activity);
